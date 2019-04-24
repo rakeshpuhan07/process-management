@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <link rel="stylesheet" type="text/css" href="1.css"></link>
+	<title>First Page</title>
+	<script type="text/javascript" src="xlsx.full.min.js"></script>
+    <script src="jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="angular.min.js"></script>
+</head>
+<body>
+<div>
+	<img src="0.png">++++++++++++++
+	<br>
+	<h1><span class="n">Process Management by CPM</span></h1>
+</div>
+<br>
+<div><hr></div>
+<div style="margin-left:37%">
+    <input type="file" id="fileupload" hidden="hidden" accept=".xlsx,.xls" />
+	<BUTTON class="b" id="b1">Choose File</BUTTON>
+	<span id="text1" style="color:black">No file selected</span>
+    <BUTTON class="b" id="b2" style="margin-left:10%">Submit</BUTTON>
+</div>
+<br>
+<span id="text2" class="m"></span>
+<div style="margin-left:30%">
+<h4>Please select an Excel File which contains data of the various processes</h4>
+</div>
+<br>
+<div id="wrapper" class="k">
+
+<script type="text/javascript">
+	var flag=0;
+const file1 = document.getElementById("fileupload");
+const	but1 = document.getElementById("b1");
+const   but2= document.getElementById("b2");
+const text1 = document.getElementById("text1");
+const text2 = document.getElementById("text2");
+const t1 = document.getElementById("wrapper");
+but1.addEventListener("click",function()
+{
+file1.click();
+}) ;
+file1.addEventListener("change",function(e)
+{   flag=1;
+	text1.innerHTML = file1.value.match( /[\/\\]([\w\d\s\.\-\(\)]+)$/)[1];
+var reader = new FileReader();
+reader.readAsArrayBuffer(e.target.files[0]);
+reader.onload = function(e)
+{
+	var data = new Uint8Array(reader.result);
+	var wb = XLSX.read(data,{type:'array'});
+	var htmlstr = XLSX.write(wb,{sheet:"CPM",type:'binary',bookType:'html'});
+	$('#wrapper')[0].innerHTML+=htmlstr;
+}	
+}
+);
+but2.addEventListener ("click",function()
+	{   if(flag==0)
+			text2.innerHTML = "Please choose a file!";
+			else
+			{
+				t1.style.visibility="visible";
+			}
+	});
+</script>
+</body>
+</html>

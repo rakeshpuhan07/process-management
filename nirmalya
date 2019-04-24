@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="angular.min.js"></script>
+</head>
+<body ng-app>
+	<div>
+		89 + 90 = {{ 89 + 90 }}
+	</div>
+	
+</body>
+</html>

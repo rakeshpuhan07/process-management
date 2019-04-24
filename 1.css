@@ -1,0 +1,38 @@
+body
+	{
+		color:#009578;
+		font-family:Arial;
+		background-size:cover;
+		background-repeat: no-repeat;
+	}
+	.b
+	{ position: relative;
+		padding: 	10px;
+		background-color: 	#009578;
+		border: 1px solid #000;
+		border-radius: 	5px;
+		cursor: 	pointer;	 	
+	}
+	.b:hover
+	{
+		background-color: 	#00b28f;
+	}
+	.m
+	{
+		margin-left: 45%;
+		color: red;
+	}
+	img
+	{   float: left;
+	    height:120px;
+	    width:120px;
+	}
+	.n
+	{
+		padding-left: 25%;
+		padding-bottom: 0%;
+	}
+	.k{
+		visibility: hidden;
+		color: black;
+	}
